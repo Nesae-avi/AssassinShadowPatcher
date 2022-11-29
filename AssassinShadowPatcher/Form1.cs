@@ -55,14 +55,7 @@ namespace AssassinShadowPatcher
                 throw new ArgumentException($"'{nameof(ExecutablePath)}' cannot be null or empty.", nameof(ExecutablePath));
             }
 
-            try
-            {
-                File.Copy(ExecutablePath, $"{ExecutablePath}.aspbackup");
-            }
-            catch
-            {
-                return false;
-            }
+            File.Copy(ExecutablePath, $"{ExecutablePath}.aspbackup");
 
             return true;
         }
@@ -106,14 +99,7 @@ namespace AssassinShadowPatcher
                 return false;
             }
 
-            try
-            {
-                File.Copy(backupFilePath, ExecutablePath, true);
-            }
-            catch
-            {
-                return false;
-            }
+            File.Copy(backupFilePath, ExecutablePath, true);
 
             return true;
         }
